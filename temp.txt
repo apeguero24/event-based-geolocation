@@ -1,0 +1,67 @@
+var Event = require('../models/EventsModel');
+
+module.exports = function(app) {
+        
+    app.get('/create/event', function(req, res) {
+        
+        var places = [
+            {
+                name: 'Muse Club', 
+                type: 'Bar/Club',
+                times: {
+                    mon: { open: 1080, close: 240 },
+                    tues: { open: 1080, close: 240 },
+                    wed: { open: 1080, close: 240 },
+                    thurs: { open: 1080, close: 240 },
+                    fri: { open: 1080, close: 240 },
+                    sat: { open: 1080, close: 240 },
+                    sun: { open: 1080, close: 240 }
+                },
+                loc: {
+                    type: [40.700745, -73.929567],
+                    index: '2d'
+                }  
+            },
+            {
+                name: 'Foo Club', 
+                type: 'Bar/Club',
+                times: {
+                    mon: { open: 1080, close: 240 },
+                    tues: { open: 1080, close: 240 },
+                    wed: { open: 1080, close: 240 },
+                    thurs: { open: 1080, close: 240 },
+                    fri: { open: 1080, close: 240 },
+                    sat: { open: 1080, close: 240 },
+                    sun: { open: 1080, close: 240 }
+                },
+                loc: {
+                    type: [40.701241, -73.928902],
+                    index: '2d'
+                }  
+            },
+            {
+                name: 'Foo Bar', 
+                type: 'Bar/Club',
+                times: {
+                    mon: { open: 1080, close: 240 },
+                    tues: { open: 1080, close: 240 },
+                    wed: { open: 1080, close: 240 },
+                    thurs: { open: 1080, close: 240 },
+                    fri: { open: 1080, close: 240 },
+                    sat: { open: 1080, close: 240 },
+                    sun: { open: 1080, close: 240 }
+                },
+                loc: {
+                    type: [40.700062, -73.927636],
+                    index: '2d'
+                }  
+            }
+        ];
+
+        Event.create(places, function(err, events){
+            if (err) throw err;
+            res.json(events);
+        });
+
+    });
+}
