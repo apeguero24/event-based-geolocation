@@ -39,9 +39,9 @@ module.exports = function(app) {
 
          Event.create(places, function(err, events) {
             if (err) {
-                res.send(err);
+                return res.send(err);
             }
-            res.json(events);
+            return res.json(events);
         });
 
     });
